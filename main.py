@@ -26,7 +26,11 @@ def handle_stop(message):
                      reply_markup=hide_markup)
 
 def get_weather(city_name):
-   obs = owm.weather_at_place(city_name)    # obs for observation TODO: create better names
+   observation = owm.weather_at_place(city_name)    # obs for observation TODO: create better names
+   w = observation.get_weather()
+
+   weather_array = str(w).split(', ')
+   return weather_array[1][7:-1]
 
 
 
